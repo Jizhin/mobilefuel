@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "FuelSafe",
+    "slug": "fuelsafe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#16A34A"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fuelsafe.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "FuelSafe needs your location to find nearby fuel stations.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "FuelSafe needs background location to track fuel while driving."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#16A34A"
+      },
+      "package": "com.fuelsafe.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": ""
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "FuelSafe needs your location to find nearby fuel stations and track fuel consumption while driving."
+        }
+      ],
+      "expo-speech"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
+    }
+  }
+}
