@@ -26,7 +26,11 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Debug Expo config
-        run: node node_modules/expo/bin/cli config --json 2>&1 || true
+        run: |
+          cd /home/runner/work/mobilefuel/mobilefuel
+          node node_modules/expo/bin/cli config --json > /tmp/expo-out.txt 2> /tmp/expo-err.txt; echo "EXIT: $?"
+          echo "=== STDOUT ===" && cat /tmp/expo-out.txt
+          echo "=== STDERR ===" && cat /tmp/expo-err.txt
 
       - name: Build Android APK
         run: eas build --platform android --profile preview --non-interactive
