@@ -26,9 +26,10 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Debug Expo config
+        continue-on-error: true
         run: |
-          cd /home/runner/work/mobilefuel/mobilefuel
-          node node_modules/expo/bin/cli config --json > /tmp/expo-out.txt 2> /tmp/expo-err.txt; echo "EXIT: $?"
+          node node_modules/expo/bin/cli config --json > /tmp/expo-out.txt 2> /tmp/expo-err.txt
+          echo "EXIT: $?"
           echo "=== STDOUT ===" && cat /tmp/expo-out.txt
           echo "=== STDERR ===" && cat /tmp/expo-err.txt
 
