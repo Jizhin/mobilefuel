@@ -1,15 +1,12 @@
 name: Build Android APK
-
 on:
   workflow_dispatch:
   push:
     branches: [main]
-
 jobs:
   build:
     name: Build Android APK
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,8 +25,13 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      - name: Debug Expo config
+        run: npx expo config --json
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
       - name: Build Android APK
         run: eas build --platform android --profile preview --non-interactive
 
       - name: Get build URL
-        run: echo "✅ APK build started! Check https://expo.dev/accounts/[your-account]/projects/fuelsafe/builds for the download link."
+        run: echo "✅ APK build started! Check https://expo.dev/accounts/adminkee/projects/mobile-fuel/builds for the download link."
