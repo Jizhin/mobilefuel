@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "FuelSafe",
-    "slug": "fuelsafe",
+    "slug": "mobile-fuel",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -51,7 +51,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "55d5ad87-98de-4efc-9367-1ac595643f67"
       }
     }
   }
