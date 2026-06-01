@@ -25,8 +25,15 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      - name: Check project structure
+        run: |
+          echo "=== app.json ===" && cat app.json
+          echo "=== package.json ===" && cat package.json
+          echo "=== expo-location ===" && ls node_modules/expo-location || echo "MISSING"
+          echo "=== expo-speech ===" && ls node_modules/expo-speech || echo "MISSING"
+
       - name: Debug Expo config
-        run: npx expo config --json
+        run: npx expo config --json 2>&1 || true
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
